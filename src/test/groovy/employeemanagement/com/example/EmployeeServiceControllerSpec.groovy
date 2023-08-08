@@ -3,7 +3,7 @@ package employeemanagement.com.example
 import grails.testing.web.controllers.ControllerUnitTest
 import spock.lang.Specification
 
-class EmployeeControllerSpec extends Specification implements ControllerUnitTest<EmployeeController> {
+class EmployeeServiceControllerSpec extends Specification implements ControllerUnitTest<EmployeeController> {
 
     def setup() {
     }

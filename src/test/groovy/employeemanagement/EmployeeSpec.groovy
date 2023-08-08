@@ -3,7 +3,7 @@ package employeemanagement
 import grails.testing.gorm.DomainUnitTest
 import spock.lang.Specification
 
-class EmployeeSpec extends Specification implements DomainUnitTest<Employee> {
+class EmployeeServiceSpec extends Specification implements DomainUnitTest<EmployeeService> {
 
     def setup() {
     }

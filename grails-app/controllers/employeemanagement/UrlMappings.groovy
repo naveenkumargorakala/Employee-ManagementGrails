@@ -8,7 +8,7 @@ class UrlMappings {
         }
 
         "/employee/create"(controller: "employee",action: "create")
-        "/employee/$id//edit"(controller: "employee",action: "edit")
+        "/employee/$id/edit"(controller: "employee",action: "edit")
         "/employee/$id/delete"(controller: "employee", action: "delete")
         "/$controller/$action?/$id?(.$format)?"{
             constraints {

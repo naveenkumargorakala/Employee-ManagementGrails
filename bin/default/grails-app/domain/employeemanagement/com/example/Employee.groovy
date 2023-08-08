@@ -11,6 +11,5 @@ class Employee {
         firstName blank: false
         lastName blank: false
         designation nullable: true
-        age min: 18
     }
 }

@@ -8,16 +8,17 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Employee List</title>
+    <title>Employee Management</title>
+
 </head>
 
 <body>
-    <h1>Employee list</h1>
-    <ul>
-        <g:each in="${employeeList}" var="employeeRef">
-            <li>${employeeRef.firsName}${employeeRef.lastName}</li>
-        </g:each>
-    </ul>
-<a href="${createLink(controller: 'employee',action: 'create')}">Add Employee</a>
+    <div class="header">
+        <h1 text-align="center">Welcome to Employee Management System</h1>
+    </div>
+<button class="button">
+<a class="anchor" href="${createLink(controller: 'employee',action: 'create')}">Add Employee</a>
+</button>
 </body>
 </html>
+

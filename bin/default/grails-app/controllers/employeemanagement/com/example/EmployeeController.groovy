@@ -1,44 +1,58 @@
 package employeemanagement.com.example
 
-class EmployeeController {
 
-    EmployeeService EmployeeService
-    
+class EmployeeController {
 
     def index() {
         def employeeList = Employee.list()
-        [EmployeeList : employeeList]
-    }
-    def create() {
-        [employeeRef = new Employee(params)]
+        [employeeList: employeeList]
     }
 
-    def save(){
+    //save contact details
+    def save() {
         def employeeRef = new Employee(params)
-        if(employeeRef.save())
-            redirect(action:"index")
+        if (employeeRef.save())
+            redirect(action: "show")
         else
-            render(view: "create",model: [employee:employeeRef])
+            render(view: "create", model: [employeeRef: employeeRef])
     }
-     def edit( Long id) {
-         def employeeRef = Employee.get(id)
-         [employeeRef:employeeRef]
-     }
 
-    def update() {
-        def employeeRef = Employee.get(params.id)
-        employeeRef.properties=params
-        if(employeeRef.save()){
-            redirect(action: "index")
+    def show() {
+        def employeeList = Employee.list()
+        [employeeList: employeeList]
+    }
+
+    def create() {
+        [employeeRef: new Employee(params)]
+    }
+
+
+    //edit contact
+    def edit(Long id) {
+        if (flash.redirectParams) {
+            [employeeRef: flash.redirectParams]
         }
-        else
-            render(view: "edit",model: [employeeRef: employeeRef])
+        def employeeRef = Employee.get(id)
+        [employeeRef: employeeRef]
     }
+
+    //update contact
+    def update(Long id) {
+
+        def employeeRef = Employee.get(id)
+        if (employeeRef) {
+            [employeeRef: employeeRef]
+        } else {
+            flash.error = "Employee not found."
+            redirect(action: "list")
+        }
+    }
+
+
+    //delete contact
     def delete(Long id) {
-        def employeeRef= Employee.get(id)
+        def employeeRef = Employee.get(id)
         employeeRef.delete()
-        redirect(action: "index")
+        redirect(action: "show")
     }
-
 }
-
